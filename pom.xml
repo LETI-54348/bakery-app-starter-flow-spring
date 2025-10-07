@@ -10,8 +10,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.4</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <version>3.5.6</version>
     </parent>
 
     <properties>
@@ -22,10 +21,8 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
         <!-- Dependencies -->
-        <vaadin.version>24.1.7</vaadin.version>
+        <vaadin.version>24.9.2</vaadin.version>
 
-        <!-- Overrides the old version specified by the Spring Boot parent -->
-        <selenium.version>4.10.0</selenium.version>
         <!-- selenium is so much verbose -->
         <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
 
@@ -175,6 +172,7 @@
         <!-- Testing -->
         <dependency>
             <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-testbench-junit5</artifactId>
             <artifactId>vaadin-testbench</artifactId>
             <scope>test</scope>
         </dependency>
@@ -276,7 +274,7 @@
                     </plugin>
                     <plugin>
                         <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.22.2</version>
+                        <version>3.5.3</version>
                         <executions>
                             <execution>
                                 <goals>
@@ -287,6 +285,7 @@
                         </executions>
                         <configuration>
                             <trimStackTrace>false</trimStackTrace>
+                            <enableAssertions>true</enableAssertions>
                             <systemPropertyVariables>
                                 <com.vaadin.testbench.Parameters.runLocally>chrome</com.vaadin.testbench.Parameters.runLocally>
                             </systemPropertyVariables>
